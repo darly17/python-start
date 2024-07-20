@@ -7,11 +7,13 @@ def bros():
     return x
 def img(event):
     global b1, b2
-    b1=PhotoImage(file=(bros()))
-    b2=PhotoImage(file=(bros()))
-    lab1['image']=b1
-    lab2['image']=b2
-    root.update()
+    for i in range(20):
+        b1=PhotoImage(file=(bros()))
+        b2=PhotoImage(file=(bros()))
+        lab1['image']=b1
+        lab2['image']=b2
+        root.update()
+        time.sleep(0.05)
     
 
 #class
@@ -28,5 +30,5 @@ lab1.place(relx=0.3,rely=0.5,anchor=CENTER)
 lab2=Label(root)
 lab2.place(relx=0.7,rely=0.5,anchor=CENTER)
 root.bind('<1>',img)
-               
+img('event')              
 root.mainloop()
